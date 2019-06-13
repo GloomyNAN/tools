@@ -8,6 +8,7 @@
 ├── auto-rsync.sh               # Rsync自动同步
 ├── hook.js                     # node.js版本git钩子
 ├── md5.py                      # python MD5去重工具
+├── mysql-branch.sh             # MySQL-分支切换脚本
 ├── mysql-sync.sh               # MySQL-定时同步脚本
 ├── mysqlbackup-lan.sh          # MySQL-内网备份工具
 ├── mysqlbackup-local.sh        # MySQL-本地备份工具
