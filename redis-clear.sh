@@ -3,7 +3,7 @@
 # Date: 2019-06-13 09:51:15
 # Description:  Reids Cache Clearer 
 
-#Set
+# configriation
 DB_HOST="127.0.0.1"         # Reids IP
 DB_DATABASES=0              # 数据库
 DB_PORT=6379                # 端口
