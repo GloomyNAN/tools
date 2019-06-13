@@ -7,7 +7,7 @@
 DB_HOST="127.0.0.1"   # MySQL IP
 DB_USER="user"        # MySQL用户
 DB_PASSWORD="pass"    # MySQL密码
-DB_PROT=33060         # MySQL端口
+DB_PROT=3306          # MySQL端口
 DB_BACKUP_PATH="/data/backup/backup/mysql/" # 数据库备份目录
 DB_TEST_SQL_PATH="/data/shell/sql/test.sql" # 测试sql文件位置，可写一些更改后台所有用户密码，更改配置等测试SQL
 DB_DATABASES=(prod test preview)            # 可以恢复的数据库名，使用空格分隔。
