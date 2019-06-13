@@ -9,7 +9,7 @@ SSH_HOST="127.0.0.1"            # 服务器IP
 SSH_PORT=22                     # ssh端口
 SSH_USER="root"                 # 用户名
 SSH_TUNNEL_PROT=8989            # ssh通道端口
-SSH_KEY="~/.ssh/prod_id_rsa"    # 私钥地址
+SSH_KEY="~/.ssh/id_rsa"    # 私钥地址
 
 ## mysql配置
 DB_BACKPATH="/data/backup/mysql"    # 数据库备份目录，需要提前建立

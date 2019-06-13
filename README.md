@@ -5,8 +5,10 @@
 ```bash
 ├── AutoScp.sh                  # 自动复scp脚本
 ├── README.md
+├── auto-rsync.sh               # Rsync自动同步
 ├── hook.js                     # node.js版本git钩子
 ├── md5.py                      # python MD5去重工具
+├── mysql-sync.sh               # MySQL-定时同步脚本
 ├── mysqlbackup-lan.sh          # MySQL-内网备份工具
 ├── mysqlbackup-local.sh        # MySQL-本地备份工具
 ├── mysqlbackup-ssh.sh          # MySQL-SSH隧道备份工具
