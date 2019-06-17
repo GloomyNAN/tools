@@ -9,7 +9,7 @@ DB_HOST="127.0.0.1"                 # MySQL IP
 DB_USER="backup"                    # MySQL备份用户。
 DB_DATABASES="demo"                 # 需要备份的数据库名，使用空格分隔。
 DB_PASSWORD="backup"                # MySQL密码
-DB_PROT=3306                       # MySQL端口
+DB_PROT=3306                        # MySQL端口
 
 DB_RETENTION_TIME=30                # 数据保留时间
 LOG_PATH=/data/logs/mysqlbackup-local.log  # 脚本日志路径
