@@ -18,6 +18,7 @@ DB_USER="backup"                    # mysql备份用户。
 DB_DATABASES="demo"                 # 需要备份的数据库名，使用空格分隔。
 DB_PASSWORD="backup"                # mysql密码
 DB_PROT=3306                        # mysql端口
+DB_CHARSET=utf8mb4                  # 字符集
 DB_RETENTION_TIME=30                # 数据保留时间
 
 LOG_PATH=/data/logs/mysqlbackup-ssh.log  # 脚本日志路径
@@ -35,7 +36,7 @@ cd $DB_BACKPATH
 list=`echo $DB_DATABASES | xargs -n1`
 for i in $list
 do
-    mysqldump -h 127.0.0.1 -u$DB_USER -p$DB_PASSWORD -P$SSH_TUNNEL_PROT $i --set-gtid-purged=off > $i.sql 
+    mysqldump -h 127.0.0.1 -u$DB_USER -p$DB_PASSWORD -P$SSH_TUNNEL_PROT $i --set-gtid-purged=off --default-character-set=$DB_CHARSET > $i.sql 
      echo "$datetime-$i-数据备份成功" >> $LOG_PATH
     if [ $? -ne 0 ];            
     then 

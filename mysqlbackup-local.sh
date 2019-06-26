@@ -11,6 +11,7 @@ DB_USER="backup"                    # MySQL备份用户。
 DB_DATABASES="demo"                 # 需要备份的数据库名，使用空格分隔。
 DB_PASSWORD="backup"                # MySQL密码
 DB_PROT=3306                        # MySQL端口
+DB_CHARSET=utf8mb4                  # 字符集
 DATA_DIR="/var/lib/mysql"           # MySQL的数据库目录。
 MYSQL_DIR="/usr"                    # MySQL的安装目录。
 
@@ -24,7 +25,7 @@ list=`echo $DB_DATABASES | xargs -n1`
 for i in $list
 do
         if [ -e $DATA_DIR/$i ];then
-                $MYSQL_DIR/bin/mysqldump -u$DB_USER -p$DB_PASSWORD -P$DB_PROT $i > $i.sql
+                $MYSQL_DIR/bin/mysqldump -u$DB_USER -p$DB_PASSWORD -P$DB_PROT $i --set-gtid-purged=off --default-character-set=$DB_CHARSET > $i.sql
                 echo "$datetime-$i-数据备份成功" >> $LOG_PATH
                 if [ $? -ne 0 ];then
                         echo "$datetime-$i" >> $LOG_PATH
