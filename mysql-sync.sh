@@ -30,7 +30,9 @@ if echo "${DB_DATABASES[@]}" | grep -w $1 &>/dev/null; then
 fi
 
 cd $DB_BACKUP_PATH
-dump=`find ./ -name '*.tar.gz' -mtime -1`
+
+# 查找最新的sql备份
+dump=`find ./ -name '*.tar.gz' -mtime -1 | sort -r | head -n 1`
 tar -xvf $dump
 mysql -h $DB_HOST -u $DB_USER -p$DB_PASSWORD -P$DB_PROT $1 < $DB_BACKUP_PATH$DB_NAME
 echo "$st-$1-数据库同步完成，数据库:$dump" >> $LOG_PATH
