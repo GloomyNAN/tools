@@ -18,7 +18,7 @@ datetime=`date +%Y%m%d%H%M%S`
 
 
 if [ ! $1 ]; then  
-  echo "$st-缺少参数" >> $LOG_PATH
+  echo "$datetime-缺少参数" >> $LOG_PATH
   exit
 fi    
 
@@ -31,7 +31,7 @@ fi
 
 cd $DB_BACKUP_PATH
 
-# 查找最新的sql备份
+# 查找最新的sql备份    
 dump=`find ./ -name '*.tar.gz' -mtime -1 | sort -r | head -n 1`
 tar -xvf $dump
 mysql -h $DB_HOST -u $DB_USER -p$DB_PASSWORD -P$DB_PROT $1 < $DB_BACKUP_PATH$DB_NAME

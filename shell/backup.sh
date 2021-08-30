@@ -8,9 +8,9 @@ cd /data/backup   #之前需要创建一个目录用于保存备份数据。
 #Set
 st=$(date +%s)
 user="root"                              #mysql数据库root用户。
-password="Password1"                      #root用户密码。
-database="yqltest"                         #需要备份的数据库名，使用空格分隔。
-mail="peng.zuo@helydata.com"                     #备份结果邮件通知，填写需要通知到的邮件地址。
+password=""                      #root用户密码。
+database=""                         #需要备份的数据库名，使用空格分隔。
+mail=""                     #备份结果邮件通知，填写需要通知到的邮件地址。
 data_dir="/var/lib/mysql"      #mysql的数据库目录。
 mysql_dir="/usr"   #mysql的安装目录。
 
