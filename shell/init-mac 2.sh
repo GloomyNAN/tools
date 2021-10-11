@@ -3,34 +3,13 @@
 # author:Gloomy
 # description: init-mac.sh 
 
-# .emacs.d
-# mac System Preferences -> Security & Privacy -> Privacy" full disk /usr/bin/ruby
-git clone git@github.com:GloomyNAN/emacs.d.git ~/.emacs.d/
-
 # install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## 从本镜像下载安装脚本并安装 Homebrew / Linuxbrew
-
-git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
-/bin/bash brew-install/install.sh
-rm -rf brew-install
-
-## 也可从 GitHub 获取官方安装脚本安装 Homebrew / Linuxbrew
-/bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
-
-# 更换清华大学源
-
-git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-git -C "$(brew --repo homebrew/cask-fonts)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
-git -C "$(brew --repo homebrew/cask-drivers)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
-git -C "$(brew --repo homebrew/cask-versions)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git
-git -C "$(brew --repo homebrew/command-not-found)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git
 
 # Formulae
 
-brew install 
+brew install emacs \
      ## Lang
      go python3 \
 
@@ -43,11 +22,12 @@ brew install
      ## package manager
      dep \
      # 命令提示工具
-     tldr osx-cpu-temp
+     tldr
 
 # cask
 
-brew install emacs virtualbox visual-studio-code ngrok vagrant docker wkhtmktopdf keepassxc microsoft-edge google-chrome wpsoffice docker sourcetree baidunetdisk qq wechat iterm2 shadowsocksx-ng-r --cask
+brew install virtualbox visual-studio-code ngrok vagrant docker wkhtmktopdf keepassxc microsoft-edge
+
 
 # uninstall
 # brew tap beeftornado/rmtree
