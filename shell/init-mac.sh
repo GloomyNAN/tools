@@ -28,9 +28,11 @@ git -C "$(brew --repo homebrew/cask-drivers)" remote set-url origin https://mirr
 git -C "$(brew --repo homebrew/cask-versions)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git
 git -C "$(brew --repo homebrew/command-not-found)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git
 
+brew update-reset
+
 # Formulae
 
-brew install 
+brew install \
      ## Lang
      go python3 \
 
@@ -38,16 +40,20 @@ brew install
      telnet tig tree htop wget bpytop \
 
      ## Others
-     node docker git-lfs gh \
+     node git-lfs gh ncdu \
 
-     ## package manager
-     dep \
      # 命令提示工具
      tldr osx-cpu-temp
 
 # cask
-
-brew install emacs virtualbox visual-studio-code ngrok vagrant docker wkhtmktopdf keepassxc microsoft-edge google-chrome wpsoffice docker sourcetree baidunetdisk qq wechat iterm2 shadowsocksx-ng-r --cask
+brew install emacs  visual-studio-code android-studio arduino sourcetree \
+     # 研发
+     virtualbox vagrant docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
+     ## 必备应用
+     wpsoffice  baidunetdisk qq wechat \
+     ##  小工具
+     cheatsheet skim recordit ngrok wkhtmktopdf keepassxc drawio \
+     --cask
 
 # uninstall
 # brew tap beeftornado/rmtree

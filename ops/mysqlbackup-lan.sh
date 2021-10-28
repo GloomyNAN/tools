@@ -21,12 +21,16 @@ list=`echo $DB_DATABASES | xargs -n1`
 for i in $list
 do
     mysqldump -h $DB_HOST -u$DB_USER -p$DB_PASSWORD -P$DB_PROT $i --set-gtid-purged=off --default-character-set=$DB_CHARSET > $i.sql 
-    echo "$datetime-$i-数据备份成功" >> $LOG_PATH
-    if [ $? -ne 0 ];then 
-        echo "$datetime-$i" >> $LOG_PATH
+    
+    if [ $? -ne 0 ];
+    then 
+        echo "$datetime-$i-备份失败" >> $LOG_PATH
+        continue
     fi
+    
+    tar czf ${i}-${datetime}-database.tar.gz ./${i}.sql
 done
-tar czf ${datetime}-database.tar.gz ./*.sql
+# tar czf ${datetime}-database.tar.gz ./*.sql
 rm -fr ./*.sql
 
 # Cleaning

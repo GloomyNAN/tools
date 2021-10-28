@@ -26,13 +26,16 @@ for i in $list
 do
         if [ -e $DATA_DIR/$i ];then
                 $MYSQL_DIR/bin/mysqldump -u$DB_USER -p$DB_PASSWORD -P$DB_PROT $i --set-gtid-purged=off --default-character-set=$DB_CHARSET > $i.sql
-                echo "$datetime-$i-数据备份成功" >> $LOG_PATH
                 if [ $? -ne 0 ];then
-                        echo "$datetime-$i" >> $LOG_PATH
+                              echo "$datetime-$i-备份失败" >> $LOG_PATH
+                              continue
                 fi
+                
+                tar czf ${i}-${datetime}-database.tar.gz ./${i}.sql
         fi
 done
-tar czf ${datetime}-database.tar.gz ./*.sql
+
+# tar czf ${datetime}-database.tar.gz ./*.sql
 rm -fr ./*.sql
 
 #Cleaning
