@@ -40,7 +40,7 @@ brew install \
      telnet tig tree htop wget bpytop \
 
      ## Others
-     node git-lfs gh ncdu \
+     node@14 git-lfs gh ncdu \
 
      # 命令提示工具
      tldr osx-cpu-temp
