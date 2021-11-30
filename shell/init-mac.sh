@@ -43,14 +43,17 @@ brew install \
      node@14 git-lfs gh ncdu \
 
      # 命令提示工具
-     tldr osx-cpu-temp
+     tldr osx-cpu-temp \
+
+     # java
+     maven
 
 # cask
 brew install emacs  visual-studio-code android-studio arduino sourcetree \
      # 研发
      virtualbox vagrant docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
      ## 必备应用
-     wpsoffice  baidunetdisk qq wechat \
+     wpsoffice  baidunetdisk qq wechat wechatwork \
      ##  小工具
      cheatsheet skim recordit ngrok wkhtmktopdf keepassxc drawio \
      --cask
@@ -137,4 +140,7 @@ alias tag='git tag'
 ## docker
 alias dc='docker-compose'
 alias do='docker'
+
+# brew open java
+export JAVA_HOME=$(/usr/libexec/java_home)
 EOF
