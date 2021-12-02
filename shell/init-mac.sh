@@ -34,7 +34,7 @@ brew update-reset
 
 brew install \
      ## Lang
-     go python3 \
+     go@1.16 python3 \
 
      ## Gun
      telnet tig tree htop wget bpytop \
@@ -70,6 +70,12 @@ brew install emacs  visual-studio-code android-studio arduino sourcetree \
 cat > ~/.bashrc << EOF
 
 source ~/.profile
+
+## perl
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 function git_branch {
  branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
@@ -141,6 +147,18 @@ alias tag='git tag'
 alias dc='docker-compose'
 alias do='docker'
 
-# brew open java
+# openjdk
 export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+# go
+
+## 配置 GOPROXY 环境变量
+export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"
+export GOROOT="$(go env GOROOT)"
+export GOPROXY=https://goproxy.io,direct
+## 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
+export GOPRIVATE=git.mycompany.com,github.com/my/private
+export GOPATH="$HOME/.govendor"
 EOF
