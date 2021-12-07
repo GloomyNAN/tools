@@ -46,7 +46,7 @@ brew install \
      tldr osx-cpu-temp \
 
      # java
-     maven
+     maven openjdk@11
 
 # cask
 brew install emacs  visual-studio-code android-studio arduino sourcetree \
@@ -149,7 +149,6 @@ alias do='docker'
 
 # openjdk
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # go
@@ -161,4 +160,34 @@ export GOPROXY=https://goproxy.io,direct
 ## 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
 export GOPRIVATE=git.mycompany.com,github.com/my/private
 export GOPATH="$HOME/.govendor"
+
+# php
+export PATH="/opt/homebrew/opt/php@7.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"
+
 EOF
+
+
+```bash
+# ide File Header
+/*
+ * @PROJECT  ${PROJECT_NAME}
+ * @PACKAGE  ${PACKAGE_NAME}
+ * @Description
+ * @create: ${DATE} ${TIME}
+ * @Author ${USER} <GloomyNAN@gmail.com>
+ * @Copyright ${YEAR} ${USER}
+ * @Link https://github.com/GloomyNAN
+ * @Link http://gloomynan.com
+ * @Version 1.0
+ */
+
+# 简化版
+
+/*
+ * @Description 
+ * @create: ${DATE} ${TIME}
+ * @Author ${USER} <GloomyNAN@gmail.com>
+ * @Version 1.0
+*/
+```
