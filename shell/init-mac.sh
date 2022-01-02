@@ -180,7 +180,7 @@ EOF
 
 ```bash
 # ide File Header
-/*
+/**
  * @PROJECT  ${PROJECT_NAME}
  * @PACKAGE  ${PACKAGE_NAME}
  * @Description
@@ -194,7 +194,7 @@ EOF
 
 # 简化版
 
-/*
+/**
  * @Description 
  * @create: ${DATE} ${TIME}
  * @Author ${USER} <GloomyNAN@gmail.com>
