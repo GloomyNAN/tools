@@ -3,44 +3,48 @@
 # author:Gloomy
 # description: init-mac.sh 
 
+chsh -s /bin/bash
+
 # .emacs.d
 # mac System Preferences -> Security & Privacy -> Privacy" full disk /usr/bin/ruby
 git clone git@github.com:GloomyNAN/emacs.d.git ~/.emacs.d/
 
 # install Homebrew
-
 ## 从本镜像下载安装脚本并安装 Homebrew / Linuxbrew
-
 git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
 /bin/bash brew-install/install.sh
 rm -rf brew-install
 
+test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+
 ## 也可从 GitHub 获取官方安装脚本安装 Homebrew / Linuxbrew
-/bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
 
 # 更换清华大学源
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
-git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-git -C "$(brew --repo homebrew/cask-fonts)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
-git -C "$(brew --repo homebrew/cask-drivers)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
-git -C "$(brew --repo homebrew/cask-versions)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git
-git -C "$(brew --repo homebrew/command-not-found)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git
+for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
+    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-${tap}.git"
+done
 
-brew update-reset
+brew update
+
+# maven
+cp ./preferences/settings ~/.m2/
 
 # Formulae
 
 brew install \
      ## Lang
-     go@1.16 python3 \
+     go@1.16 python3 php@7.4\
 
      ## Gun
      telnet tig tree htop wget bpytop \
 
      ## Others
-     node@14 git-lfs gh ncdu \
+     node@14 git-lfs gh ncdu emacs \
 
      # 命令提示工具
      tldr osx-cpu-temp \
@@ -49,13 +53,13 @@ brew install \
      maven openjdk@11
 
 # cask
-brew install emacs  visual-studio-code android-studio arduino sourcetree \
+brew install visual-studio-code android-studio arduino sourcetree \
      # 研发
      virtualbox vagrant docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
      ## 必备应用
      wpsoffice  baidunetdisk qq wechat wechatwork \
      ##  小工具
-     cheatsheet skim recordit ngrok wkhtmktopdf keepassxc drawio \
+     cheatsheet skim recordit ngrok wkhtmktopdf keepassxc drawio postman \
      --cask
 
 # uninstall
@@ -147,12 +151,23 @@ alias tag='git tag'
 alias dc='docker-compose'
 alias do='docker'
 
+# homebrew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+
 # openjdk
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
-# go
+# php
+export PATH="/opt/homebrew/opt/php@7.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"
 
+# node
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+# go
 ## 配置 GOPROXY 环境变量
 export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"
 export GOROOT="$(go env GOROOT)"
@@ -160,11 +175,6 @@ export GOPROXY=https://goproxy.io,direct
 ## 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
 export GOPRIVATE=git.mycompany.com,github.com/my/private
 export GOPATH="$HOME/.govendor"
-
-# php
-export PATH="/opt/homebrew/opt/php@7.2/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"
-
 EOF
 
 
