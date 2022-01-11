@@ -21,14 +21,9 @@ test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~
 # /bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
 
 # 更换清华大学源
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-
-for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
-    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-${tap}.git"
-done
-
 brew update
 
 # maven
@@ -41,7 +36,7 @@ brew install \
      go@1.16 python3 php@7.4\
 
      ## Gun
-     telnet tig tree htop wget bpytop \
+     telnet tig tree htop wget bpytop mysql-client wkhtmktopdf \
 
      ## Others
      node@14 git-lfs gh ncdu emacs \
@@ -59,7 +54,7 @@ brew install visual-studio-code android-studio arduino sourcetree \
      ## 必备应用
      wpsoffice  baidunetdisk qq wechat wechatwork \
      ##  小工具
-     cheatsheet skim recordit ngrok wkhtmktopdf keepassxc drawio postman \
+     snip cheatsheet skim recordit ngrok keepassxc drawio postman \
      --cask
 
 # uninstall
@@ -167,6 +162,9 @@ export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"
 # node
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
+# mysql-cli
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
 # go
 ## 配置 GOPROXY 环境变量
 export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"
@@ -175,6 +173,13 @@ export GOPROXY=https://goproxy.io,direct
 ## 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
 export GOPRIVATE=git.mycompany.com,github.com/my/private
 export GOPATH="$HOME/.govendor"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+
 EOF
 
 
