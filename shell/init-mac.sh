@@ -36,7 +36,7 @@ brew install \
      go@1.16 python3 php@7.4\
 
      ## Gun
-     telnet tig tree htop wget bpytop mysql-client wkhtmktopdf \
+     telnet tig tree htop wget bpytop mysql-client \
 
      ## Others
      node@14 git-lfs gh ncdu emacs \
