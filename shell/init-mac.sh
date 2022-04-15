@@ -57,6 +57,8 @@ brew install visual-studio-code android-studio arduino sourcetree \
      snip cheatsheet skim recordit ngrok keepassxc drawio postman \
      --cask
 
+
+npm config set registry https://registry.npm.taobao.org
 # uninstall
 # brew tap beeftornado/rmtree
 # brew rmtree git
@@ -113,8 +115,24 @@ function hide() {
 }
 
 # React-Native
+
 function rn() {
 ( react-native $* )
+}
+
+# http&https proxy
+
+function ssoff(){
+        unset http_proxy
+                unset https_proxy
+                echo -e "已关闭代理"
+}
+
+function sson() {
+                proxyopen
+                export http_proxy="http://127.0.0.1:1087"
+                export https_proxy=$http_proxy
+                echo -e "已开启代理"
 }
 
 # alias
