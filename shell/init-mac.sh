@@ -66,6 +66,15 @@ npm config set registry https://registry.npm.taobao.org
 # brew deps --tree --installed
 # brew leaves | xargs brew deps --installed --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"
 
+# git
+
+cat > ~/.gitignore_global <<EOF
+
+*~
+.DS_Store
+
+EOF
+
 # bashrc
 
 cat > ~/.bashrc << EOF
@@ -123,13 +132,11 @@ function rn() {
 # http&https proxy
 
 function ssoff(){
-        unset http_proxy
                 unset https_proxy
                 echo -e "已关闭代理"
 }
 
 function sson() {
-                proxyopen
                 export http_proxy="http://127.0.0.1:1087"
                 export https_proxy=$http_proxy
                 echo -e "已开启代理"
