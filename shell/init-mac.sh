@@ -132,7 +132,6 @@ function rn() {
 # http&https proxy
 
 function ssoff(){
-                unset https_proxy
                 echo -e "已关闭代理"
 }
 
