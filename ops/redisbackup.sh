@@ -18,5 +18,5 @@ tar czf ${datetime}-redis.tar.gz ./*.rdb
 rm -fr ./*.rdb
 echo "$datetime-数据备份成功" >> $LOG_PATH
 
-#Cleaning
+# Cleaning
 find /data/backup/redis -type f -mtime +`echo $[$DB_RETENTION_TIME-1]` -name "*-redis.tar.gz" -exec rm -f {} \;

@@ -4,13 +4,12 @@
 #Set
 st=$(date +%s)
 DB_BACKPATH="/data/backup/mysql"
-DB_HOST="10.23.55.118"
-DB_USER="backup"     #mysql数据库root用户。
-DB_DATABASES="hejiajiaju website"      #需要备份的数据库名，使用空格分隔。
-DB_PASSWORD="backup" #root用户密码。
-DB_PROT=33060
+DB_HOST=""
+DB_USER=""              # mysql数据库用户。
+DB_DATABASES=""         # 需要备份的数据库名，使用空格分隔。
+DB_PASSWORD=""          # 密码。
+DB_PROT=3306
 DB_RETENTION_TIME=15
-# mysqldump -h 10.23.55.118 -ubackup -pbackup -P33060 hejiajiaju --set-gtid-purged=off > hejiajiaju.sql
 
 cd $DB_BACKPATH   #之前需要创建一个目录用于保存备份数据。
 
