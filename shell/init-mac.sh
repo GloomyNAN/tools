@@ -55,7 +55,7 @@ brew install \
 # cask
 brew install visual-studio-code android-studio arduino sourcetree \
      # 研发
-     virtualbox vagrant docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
+     docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
      ## 必备应用
      wpsoffice  baidunetdisk qq wechat wechatwork feishu \
      ##  小工具
