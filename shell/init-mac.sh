@@ -38,10 +38,13 @@ brew install \
      go@1.16 python3 php@7.2\
 
      ## Gun
-     telnet tig tree htop wget bpytop mysql-client \
+     telnet tig tree htop wget bpytop curl mysql-client \
 
      ## Others
-     node@14 git-lfs gh ncdu emacs \
+     node@14 git-lfs git-flow gh ncdu emacs pandoc \
+
+     ## docer
+     lazydocker boot2docker docker docker-compose docker-machine \
 
      # 命令提示工具
      tldr osx-cpu-temp \
@@ -49,7 +52,7 @@ brew install \
      # java
      maven openjdk@11
 
-     # rn
+     # react-native
      cocoapods watchman gradle android-platform-tools
 
 # cask
@@ -59,7 +62,7 @@ brew install visual-studio-code android-studio arduino sourcetree \
      ## 必备应用
      wpsoffice  baidunetdisk qq wechat wechatwork feishu tor-browser \
      ##  小工具
-     snip cheatsheet skim recordit ngrok keepassxc drawio postman kap \
+     snip cheatsheet skim recordit ngrok keepassxc drawio postman kap go2shell \
      ## k8s
      lens kubernetes-cli \
      ## dev-tools
