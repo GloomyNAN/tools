@@ -57,13 +57,13 @@ brew install visual-studio-code android-studio arduino sourcetree \
      # 研发
      docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
      ## 必备应用
-     wpsoffice  baidunetdisk qq wechat wechatwork feishu \
+     wpsoffice  baidunetdisk qq wechat wechatwork feishu tor-browser \
      ##  小工具
-     snip cheatsheet skim recordit ngrok keepassxc drawio postman \
+     snip cheatsheet skim recordit ngrok keepassxc drawio postman kap \
      ## k8s
      lens kubernetes-cli \
      ## dev-tools
-     oss-browser
+     oss-browser calibre
      --cask
 
 # npm
