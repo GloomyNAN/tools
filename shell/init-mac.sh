@@ -200,6 +200,14 @@ alias tag='git tag'
 alias dc='docker-compose'
 alias do='docker'
 
+## env
+alias dnginx='docker exec -it nginx /bin/sh'
+alias dphp72='docker exec -it php /bin/sh'
+alias dphp56='docker exec -it php56 /bin/sh'
+alias dphp54='docker exec -it php54 /bin/sh'
+alias dmysql57='docker exec -it mysql57 /bin/bash'
+alias dredis='docker exec -it redis /bin/sh'
+
 # homebrew
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
@@ -236,8 +244,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # etc
-
-
 export PATH="/usr/local/sbin:$PATH"
 
 # homebrew
