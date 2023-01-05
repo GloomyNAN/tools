@@ -12,12 +12,12 @@ DB_PASSWORD="password"    # MySQL密码
 DB_PROT=3306              # MySQL端口
 
 if [ ! $1 ]; then  
-  echo "缺少复制库名" 
+  echo "缺少源数据库库名" 
   exit
 fi 
 
 if [ ! $2 ]; then  
-  echo "缺少接受库名" 
+  echo "缺少目标数据库库名" 
   exit
 fi 
 

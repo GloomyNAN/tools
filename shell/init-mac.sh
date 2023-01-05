@@ -199,6 +199,7 @@ alias tag='git tag'
 ## docker
 alias dc='docker-compose'
 alias do='docker'
+alias lz='lazydocker'
 
 ## env
 alias dnginx='docker exec -it nginx /bin/sh'
