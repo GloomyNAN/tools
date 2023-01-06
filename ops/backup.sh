@@ -1,8 +1,5 @@
 #!/bin/bash
 # description:  MySQL buckup shell script
-# author:       sunkai
-# web site:     http://www.1987.name/505.html
-# last update:  2012-12-03
 
 cd /data/backup   #之前需要创建一个目录用于保存备份数据。
 #Set
@@ -41,7 +38,7 @@ if [ -e sqldump.log ];
 then
         error=`cat sqldump.log | xargs | tr ' ' '/'`
         echo -ne "
-        [艺起来数据库] 备份报告
+        [XXX数据库] 备份报告
         ------------------------------------------------------
         备份有误！
         错误的库：$error
@@ -51,11 +48,11 @@ then
         ------------------------------------------------------
         $(date +"%y/%m/%d  %H:%M:%S")
         " > mail.txt
-        mail -s "yqldb Data Buckup Report" $mail < mail.txt
+        mail -s "XXX Data Buckup Report" $mail < mail.txt
         rm -f sqldump.log; rm -f mail.txt
 else 
         echo -ne "
-        [火凤凰数据库] 备份报告
+        [XXX数据库] 备份报告
         -----------------------------------------------------
         备份完成！
         备份用时：$difference秒
@@ -64,11 +61,10 @@ else
         -----------------------------------------------------
         $(date +"%y/%m/%d  %H:%M:%S")
         "  >  mail.txt
-        mail -s "yqldb Data Buckup Report" $mail < mail.txt
+        mail -s "XXX Data Buckup Report" $mail < mail.txt
         rm -f sqldump.log; rm -f mail.txt
 fi
 
-#删除7天以上的备份文件。
 #Cleaning
 find /data/backup/ -type f -mtime +6 -name "*-database.tar.gz" -exec rm -f {} \;
 
