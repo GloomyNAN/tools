@@ -170,19 +170,29 @@ under the License.
       <url>http://my.repository.com/repo/path</url>
     </mirror>
      -->
+  <!-- 使用proxy可以不用设置镜像，lsp jdtls安装问题
+    自2022.12.12起，受 Maven 中央仓库网络限制，阿里云云效 Maven 中央代理仓库可能会出现部分新增依赖查找不到的情况，但不影响已有依赖，请知悉 -->
+<!--   
     <mirror>
-      <id>aliyunmaven</id>
+      <id>aliyun-public</id>
       <mirrorOf>*</mirrorOf>
       <name>阿里云公共仓库</name>
       <url>https://maven.aliyun.com/repository/public</url>
     </mirror>
 
     <mirror>
-      <id>aliyunmaven</id>
+      <id>aliyun-central</id>
       <mirrorOf>*</mirrorOf>
       <name>阿里云公共仓库</name>
       <url>https://maven.aliyun.com/repository/central</url>
     </mirror>
+
+    <mirror>
+      <id>aliyun-google</id>
+      <mirrorOf>*</mirrorOf>
+      <name>阿里云公共仓库</name>
+      <url>https://maven.aliyun.com/repository/google</url>
+    </mirror> -->
     
     <mirror>
       <id>maven-default-http-blocker</id>
