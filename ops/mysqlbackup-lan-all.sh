@@ -7,7 +7,7 @@
 DB_BACKPATH="/data/backup/mysql"    # 数据库备份目录，需要提前建立
 DB_HOST="127.0.0.1"                 # MySQL IP
 DB_USER="backup"                    # MySQL备份用户。
-DB_DATABASES="SELECT REPLACE(GROUP_CONCAT(schema_name),',',' ') FROM information_schema.schemata WHERE schema_name NOT REGEXP 'information_schema|performance_schema'"
+DB_DATABASES="SELECT REPLACE(GROUP_CONCAT(schema_name),',',' ') FROM information_schema.schemata WHERE schema_name NOT REGEXP 'information_schema|performance_schema';"
 DB_PASSWORD="backup"                # MySQL密码
 DB_PROT=3306                        # MySQL端口
 DB_CHARSET=utf8mb4                  # 字符集

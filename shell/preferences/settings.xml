@@ -102,6 +102,20 @@ under the License.
       <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
     </proxy>
     -->
+    <proxy>
+      <id>http-proxy</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>127.0.0.1</host>
+      <port>1087</port>
+    </proxy>
+        <proxy>
+      <id>https-proxy</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>127.0.0.1</host>
+      <port>1087</port>
+    </proxy>    
   </proxies>
 
   <!-- servers

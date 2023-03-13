@@ -41,7 +41,7 @@ brew install \
      telnet tig tree htop wget bpytop curl mysql-client \
 
      ## Others
-     node@14 git-lfs git-flow gh ncdu emacs pandoc \
+     node@14 git-lfs git-flow gh ncdu emacs pandoc ffmpeg redis mycli iredis pgcli tmux\
 
      ## docer
      lazydocker boot2docker docker docker-compose docker-machine \
@@ -53,8 +53,12 @@ brew install \
      maven openjdk@11
 
      # react-native
-     cocoapods watchman gradle android-platform-tools
+     cocoapods watchman gradle android-platform-tools \
 
+     # emacs
+     ## dirvish
+     coreutils fd poppler ffmpegthumbnailer mediainfo imagemagick
+     
 # cask
 brew install visual-studio-code android-studio arduino sourcetree \
      # 研发
@@ -74,25 +78,60 @@ brew install visual-studio-code android-studio arduino sourcetree \
 npm config set registry https://registry.npm.taobao.org
 npm install -g yarn
 
+# emacs
+
+## web-beautify
+npm -g install js-beautify
 ## lsp server
 
 npm i -g typescript-language-server
 npm i -g typescript
 npm i -g vscode-html-languageserver-bin
 npm i -g intelephense
-npm i -g docsify-cli 
-npm i -g eslint
+npm i -g docsify-cli
+
+### markdown
+npm i -g unified-language-server
+
+### vue2
+npm install -g vls
+## vue3
+npm install -g @volar/vue-language-server
+
+### YAML
+npm install -g yaml-language-server
+
+### DockerFile
+npm install -g dockerfile-language-server-nodejs
+
+### html
+npm install react-native-rename -g
 
 yarn config set registry https://registry.npm.taobao.org/
 
-## react native
-npm install react-native-rename -g
+### css
+npm install -g vscode-langservers-extracted
+
+### JS/TS
+npm i -g javascript-typescript-langserver
+
+### fly-check
+npm i -g eslint
+npm install -g csslint
+
 # uninstall
 # brew tap beeftornado/rmtree
 # brew rmtree git
 # brew cleanup
 # brew deps --tree --installed
 # brew leaves | xargs brew deps --installed --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"
+
+# pip
+
+## lsp
+
+### nginx
+pip3 install -U nginx-language-server
 
 # git
 
@@ -200,6 +239,15 @@ alias tag='git tag'
 alias dc='docker-compose'
 alias do='docker'
 alias lz='lazydocker'
+
+# docker attach
+function dab(){
+  docker exec -it $* /bin/bash
+}
+
+function das(){
+  docker exec -it $* /bin/sh
+}
 
 ## env
 alias dnginx='docker exec -it nginx /bin/sh'
