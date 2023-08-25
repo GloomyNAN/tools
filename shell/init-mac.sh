@@ -31,50 +31,55 @@ cp ./preferences/settings ~/.m2/
 
 # Formulae
 
-brew install shivammathur/php/php@7.2
-
 brew install \
-     ## Lang
-     go@1.16 python3 php@7.2\
+    ## Lang
+    go@1.16 python3
 
-     ## Gun
-     telnet tig tree htop wget bpytop curl mysql-client \
+    ## Gun
+    telnet tig tree htop wget bpytop curl mysql-client lazygit pssh\
 
-     ## Others
-     node@14 git-lfs git-flow gh ncdu emacs pandoc ffmpeg redis mycli iredis pgcli tmux\
+    ## Others
+    node@14 git-lfs git-flow lazygit gh ncdu emacs pandoc ffmpeg mycli iredis pgcli tmux\
 
-     ## docer
-     lazydocker boot2docker docker docker-compose docker-machine \
+    ## docer
+    lazydocker docker docker-compose \
 
-     # 命令提示工具
-     tldr osx-cpu-temp \
+    # 命令提示工具
+    tldr osx-cpu-temp \
 
-     # java
-     maven openjdk@11
+    # java
+    maven
 
-     # react-native
-     cocoapods watchman gradle android-platform-tools \
+    # react-native
+    cocoapods watchman gradle android-platform-tools \
 
-     # emacs
-     ## dirvish
-     coreutils fd poppler ffmpegthumbnailer mediainfo imagemagick
+    # emacs
+    ## dirvish
+    coreutils fd poppler ffmpegthumbnailer mediainfo imagemagick
      
 # cask
-brew install visual-studio-code android-studio arduino sourcetree \
-     # 研发
-     docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r tunnelblick \ 
-     ## 必备应用
-     wpsoffice  baidunetdisk qq wechat wechatwork feishu tor-browser \
-     ##  小工具
-     snip cheatsheet skim recordit ngrok keepassxc drawio postman kap go2shell \
-     ## k8s
-     lens kubernetes-cli \
-     ## dev-tools
-     oss-browser calibre
-     --cask
+brew install visual-studio-code android-studio arduino sourcetree visual-studio \      
+    
+    # 研发
+    docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r clashx tunnelblick \
+    
+    ## 必备应用
+    wpsoffice  baidunetdisk qq wechat wechatwork feishu tor-browser \
+    
+    ##  小工具
+    snip cheatsheet skim recordit ngrok keepassxc drawio postman kap go2shell \
+    
+    ## k8s
+    lens kubernetes-cli \
+    
+    ## dev-tools
+    oss-browser calibre snipaste \
+
+    # java
+    zulu8 zulu11 zulu17
+    --cask
 
 # npm
-
 npm config set registry https://registry.npm.taobao.org
 npm install -g yarn
 
@@ -82,8 +87,8 @@ npm install -g yarn
 
 ## web-beautify
 npm -g install js-beautify
-## lsp server
 
+## lsp server
 npm i -g typescript-language-server
 npm i -g typescript
 npm i -g vscode-html-languageserver-bin
@@ -144,7 +149,7 @@ EOF
 
 # bashrc
 
-cat > ~/.bashrc << EOF
+cat >> ~/.bashrc << EOF
 
 source ~/.profile
 
@@ -157,10 +162,10 @@ export LANGUAGE=en_US.UTF-8
 function git_branch {
  branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
  if [ "${branch}" != "" ];then
- if [ "${branch}" = "(no branch)" ];then
- branch="(`git rev-parse --short HEAD`...)"
- fi
- echo " ($branch)"
+     if [ "${branch}" = "(no branch)" ];then
+         branch="(`git rev-parse --short HEAD`...)"
+     fi
+     echo " ($branch)"
  fi
 }
 
@@ -210,7 +215,8 @@ function sson() {
                 echo -e "已开启代理"
 }
 
-# alias
+# Alias
+
 alias ll='ls -la'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -218,8 +224,8 @@ alias h='cd ~'
 alias c='clear'
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
-
 ## Git alias
+
 alias pull='git pull origin'
 alias merge='git merge'
 alias fetch='git fetch'
@@ -234,28 +240,22 @@ alias checkout='git checkout'
 alias status='git status'
 alias gpr='git pull --rebase'
 alias tag='git tag'
+alias gsc='git sparse-checkout'
 
-## docker
-alias dc='docker-compose'
-alias do='docker'
-alias lz='lazydocker'
+alias lzg='lazygit'
+alias lzd='lazydocker'
 
-# docker attach
+# docker shortcut commands
 function dab(){
-  docker exec -it $* /bin/bash
+  docker exec -it $* /bin/bash	
 }
 
 function das(){
   docker exec -it $* /bin/sh
 }
 
-## env
-alias dnginx='docker exec -it nginx /bin/sh'
-alias dphp72='docker exec -it php /bin/sh'
-alias dphp56='docker exec -it php56 /bin/sh'
-alias dphp54='docker exec -it php54 /bin/sh'
-alias dmysql57='docker exec -it mysql57 /bin/bash'
-alias dredis='docker exec -it redis /bin/sh'
+alias dkc='docker compose'
+alias dk='docker'
 
 # homebrew
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
@@ -327,3 +327,12 @@ EOF
  * @Version 1.0
 */
 ```
+# 禁止.DS_Store生成
+# defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder
+
+# 恢复.DS_Store生成
+# defaults write com.apple.finder AppleShowAllFiles TRUE
+# defaults delete com.apple.desktopservices DSDontWriteNetworkStores
+
+# 删除之前生成的.DS_Store
+# sudo find / -name ".DS_Store" -depth -exec rm {} \;
