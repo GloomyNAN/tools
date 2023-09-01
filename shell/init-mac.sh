@@ -43,7 +43,7 @@ brew install \
 
     ## docer
     lazydocker docker docker-compose \
-    
+
     # java
     maven
 
@@ -137,15 +137,6 @@ npm install -g csslint
 
 ### nginx
 pip3 install -U nginx-language-server
-
-# git
-
-cat > ~/.gitignore_global <<EOF
-
-*~
-.DS_Store
-
-EOF
 
 # bashrc
 
@@ -303,6 +294,7 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 
 EOF
 
+./init-git.sh
 
 ```bash
 # ide File Header
