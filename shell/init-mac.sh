@@ -33,20 +33,17 @@ cp ./preferences/settings ~/.m2/
 
 brew install \
     ## Lang
-    go@1.16 python3
+    go@1.16 python3 node@14 \
 
     ## Gun
-    telnet tig tree htop wget bpytop curl mysql-client lazygit pssh\
+    telnet tig tree htop wget bpytop curl mysql-client lazygit pssh \
 
     ## Others
-    node@14 git-lfs git-flow lazygit gh ncdu emacs pandoc ffmpeg mycli iredis pgcli tmux\
+    git-lfs git-flow lazygit gh ncdu emacs pandoc ffmpeg mycli iredis pgcli tmux tldr osx-cpu-temp \
 
     ## docer
     lazydocker docker docker-compose \
-
-    # 命令提示工具
-    tldr osx-cpu-temp \
-
+    
     # java
     maven
 
@@ -61,14 +58,17 @@ brew install \
 brew install visual-studio-code android-studio arduino sourcetree visual-studio \      
     
     # 研发
-    docker microsoft-edge google-chrome  iterm2 shadowsocksx-ng-r clashx tunnelblick \
+    docker google-chrome iterm2 shadowsocksx-ng-r clashx tunnelblick \
     
     ## 必备应用
     wpsoffice  baidunetdisk qq wechat wechatwork feishu tor-browser \
     
     ##  小工具
-    snip cheatsheet skim recordit ngrok keepassxc drawio postman kap go2shell \
+    snip cheatsheet skim recordit ngrok keepassxc drawio postman kap go2shell fluid \
     
+    ## ide
+    intellij-idea phpstorm goland webstorm rider \
+
     ## k8s
     lens kubernetes-cli \
     
