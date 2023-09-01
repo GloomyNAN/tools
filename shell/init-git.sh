@@ -15,6 +15,7 @@ cat >> ~/.gitconfig << EOF
 	rebase = true
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = input	
 [commit]
 	template = ~/.gitmessage.txt
 EOF
