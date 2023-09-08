@@ -45,7 +45,7 @@ brew install \
     lazydocker docker docker-compose \
 
     # java
-    maven
+    jenv maven
 
     # react-native
     cocoapods watchman gradle android-platform-tools \
@@ -76,7 +76,7 @@ brew install visual-studio-code android-studio arduino sourcetree visual-studio 
     oss-browser calibre snipaste \
 
     # java
-    zulu8 zulu11 zulu17
+    zulu7 zulu8 zulu11 zulu17
     --cask
 
 # npm
@@ -253,13 +253,26 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
-# openjdk
+# JDK
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
+export JAVA_20_HOME=$(/usr/libexec/java_home -v20)
 
-# php
-export PATH="/opt/homebrew/opt/php@7.2/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"
+alias java7='export JAVA_HOME=$JAVA_7_HOME'
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
+alias java20='export JAVA_HOME=$JAVA_20_HOME'
+# export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # node
 export PATH="/usr/local/opt/node@14/bin:$PATH"
