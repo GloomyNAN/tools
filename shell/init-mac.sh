@@ -162,7 +162,7 @@ function git_branch {
  fi
 }
 
-export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$'
+export PS1='\u@\H \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$'
 
 # Homestead
 function homestead() {
@@ -300,7 +300,10 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH="/usr/local/sbin:$PATH"
 
 # homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+## For M
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+## For Intel
+eval "$(/usr/local/bin/brew shellenv)"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
