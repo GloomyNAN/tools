@@ -33,7 +33,7 @@ cp ./preferences/settings ~/.m2/
 
 brew install \
     ## Lang
-    go@1.16 python3 node@14 \
+    go@1.20 python3 node@16 \
 
     ## Gun
     telnet tig tree htop wget bpytop curl mysql-client lazygit pssh \
@@ -83,6 +83,8 @@ brew install visual-studio-code android-studio arduino sourcetree visual-studio 
 npm config set registry https://registry.npm.taobao.org
 npm install -g yarn
 
+# tools
+npm install -g elasticdump
 # emacs
 
 ## web-beautify
@@ -275,15 +277,14 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 # node
-export PATH="/usr/local/opt/node@14/bin:$PATH"
+export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 # mysql-cli
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # go
-
 ## 配置 GOPROXY 环境变量
-export PATH="/usr/local/opt/go@1.16/bin:$PATH"
+export PATH="/usr/local/opt/go@1.20/bin:$PATH"
 export GOROOT="$(go env GOROOT)"
 export GOPROXY=https://goproxy.io,direct
 ## 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
@@ -291,7 +292,6 @@ export GOPRIVATE=git.mycompany.com,github.com/my/private
 export GOPATH="$HOME/.govendor"
 
 # android
-
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
@@ -332,6 +332,7 @@ EOF
  * @Version 1.0
 */
 ```
+
 # 禁止.DS_Store生成
 # defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder
 
